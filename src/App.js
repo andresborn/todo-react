@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import "./App.css";
 
-function App() {
+const App = () => {
+
+  const [task, setTask] = useState("")
+  const [tasks, setTasks] = useState([])
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <div className="row">
+        <div className="col-12 text-center">
+          <h1 className="ewert">Tareas de vaquero</h1>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-12">
+          <form className="form-group">
+            <input type="text" className="col-12 form-control eczar" placeholder="¿Qué hay para hoy?"/>
+          </form>
+        </div>
+      </div>
+      <div className="row eczar">
+        <div className="col">
+          <p className="breadcrumb shadow-sm tarea ">Tarea 1</p>
+          <p className="breadcrumb shadow-sm tarea ">Tarea 2</p>
+        </div>
+      </div>
     </div>
   );
-}
+};
 
 export default App;
