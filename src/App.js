@@ -3,9 +3,10 @@ import "./App.css";
 
 const App = () => {
 
-  const [task, setTask] = useState("")
-  const [tasks, setTasks] = useState([])
+  const [task, setTask] = useState("");
+  const [tasks, setTasks] = useState([]);
 
+  
 
   return (
     <div className="container">
