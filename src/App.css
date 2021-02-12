@@ -3,6 +3,7 @@ body,
 .AppContainer {
   margin: 0;
   padding: 0;
+  background-color: #e7cbbf;
 }
 
 * {
@@ -17,10 +18,19 @@ body,
   font-family: "Eczar", serif;
 }
 
+.tarea {
+  background-color: #e6b8a2;
+}
+
 .tarea:hover {
   transform: scaleX(1.02);
 }
 
 .hidden {
   display: none;
+}
+
+.important {
+  border: 1px ridge #fff1e6;
+  box-shadow: 1px 1px 15px 1px #fff1e6;
 }

@@ -13,6 +13,8 @@ const App = () => {
     setTask({
       value: e.target.value,
       id: id,
+      important: false,
+      hover: false
     });
   };
   const onSubmit = (e) => {
@@ -23,13 +25,35 @@ const App = () => {
   };
 
   const deleteTask = (id) => {
-    const test = taskList.filter((task) => !(task.id === id));
-    setTaskList(test);
-  };
+    setTaskList(taskList.filter((task) => !(task.id === id)))
+  }
+
+  const toggleImportant = (id) => {
+    setTaskList(taskList.map(task => {
+      if (task.id === id) {
+        task.important = !task.important
+        return task
+      } else {
+        return task
+      }
+    }))
+    console.log(taskList)
+  }
+  const onHover = (id) => {
+    setTaskList(taskList.map(task => {
+      if (task.id === id) {
+        task.hover = !task.hover
+        return task
+      } else {
+        return task
+      }
+    }))
+  }
+  
 
   return (
     <div className="container">
-      <div className="row">
+      <div className="row my-2">
         <div className="col-12 text-center">
           <h1 className="ewert">Tareas Vaqueras</h1>
         </div>
@@ -41,7 +65,13 @@ const App = () => {
       </div>
       <div className="row eczar">
         <div className="col">
-          <List taskList={taskList} deleteTask={deleteTask} />
+        
+        { taskList.length > 0 ? <List 
+          taskList={taskList} 
+          deleteTask={deleteTask} 
+          toggleImportant={toggleImportant}
+          onHover={onHover} /> : "No hay tareas en la lista"}
+
         </div>
       </div>
     </div>

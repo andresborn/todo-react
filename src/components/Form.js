@@ -10,6 +10,7 @@ const Form = ({onSubmit, onChange , task}) => {
         placeholder="¿Qué hay para hoy?"
         value={task.value}
         required
+        style={{backgroundColor: "#f0e4df"}}
       />
     </form>
   );
