@@ -20,12 +20,12 @@ const App = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     setTaskList([...taskList, task]);
-    console.log(task);
     setTask({ value: "" });
   };
 
   const deleteTask = (id) => {
-    setTaskList(taskList.filter((task) => !(task.id === id)))
+    const filteredList = taskList.filter((task) => !(task.id === id))
+    setTaskList(filteredList)
   }
 
   const toggleImportant = (id) => {
@@ -37,12 +37,21 @@ const App = () => {
         return task
       }
     }))
-    console.log(taskList)
   }
-  const onHover = (id) => {
+  const onHoverEnter = (id) => {
     setTaskList(taskList.map(task => {
       if (task.id === id) {
-        task.hover = !task.hover
+        task.hover = true
+        return task
+      } else {
+        return task
+      }
+    }))
+  }
+  const onHoverLeave = (id) => {
+    setTaskList(taskList.map(task => {
+      if (task.id === id) {
+        task.hover = false
         return task
       } else {
         return task
@@ -70,7 +79,9 @@ const App = () => {
           taskList={taskList} 
           deleteTask={deleteTask} 
           toggleImportant={toggleImportant}
-          onHover={onHover} /> : "No hay tareas en la lista"}
+          onHoverEnter={onHoverEnter}
+          onHoverLeave={onHoverLeave}
+           /> : "No hay tareas en la lista"}
 
         </div>
       </div>

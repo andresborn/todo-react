@@ -1,10 +1,10 @@
 import React from "react";
 
-const Task = ({ task, deleteTask, toggleImportant, onHover }) => {
+const Task = ({ task, deleteTask, toggleImportant, onHoverEnter, onHoverLeave }) => {
   return (
     <div 
-    onMouseEnter={() => onHover(task.id)}
-    onMouseLeave={() => onHover(task.id)}
+    onMouseEnter={() => onHoverEnter(task.id)}
+    onMouseLeave={() => onHoverLeave(task.id)}
     onDoubleClick={() => toggleImportant(task.id)}
     className={`breadcrumb justify-content-between tarea ${task.important ? "important" : "" }`}>
       <div className="col-11">
